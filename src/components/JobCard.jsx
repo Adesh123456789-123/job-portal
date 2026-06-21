@@ -1,4 +1,10 @@
-function JobCard({ job }) {
+function JobCard({
+  job,
+  handleSaveJob,
+  savedJobs
+}) {
+  const isSaved = savedJobs.includes(job.id);
+
   return (
     <div className="job-card">
       <h3>{job.title}</h3>
@@ -11,7 +17,18 @@ function JobCard({ job }) {
 
       <p>Type: {job.type}</p>
 
-      <button>Apply Now</button>
+      <button>
+        Apply Now
+      </button>
+
+      <br />
+      <br />
+
+      <button
+        onClick={() => handleSaveJob(job.id)}
+      >
+        {isSaved ? "Saved ✓" : "Save Job"}
+      </button>
     </div>
   );
 }

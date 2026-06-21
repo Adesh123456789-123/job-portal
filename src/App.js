@@ -9,6 +9,13 @@ import "./App.css";
 function App() {
   const [search, setSearch] = useState("");
   const [location, setLocation] = useState("");
+  const [savedJobs, setSavedJobs] = useState([]);
+
+  const handleSaveJob = (jobId) => {
+    if (!savedJobs.includes(jobId)) {
+      setSavedJobs([...savedJobs, jobId]);
+    }
+  };
 
   const filteredJobs = jobs.filter((job) => {
     const matchesSearch =
@@ -44,6 +51,8 @@ function App() {
           <JobCard
             key={job.id}
             job={job}
+            handleSaveJob={handleSaveJob}
+            savedJobs={savedJobs}
           />
         ))}
       </div>

@@ -1,6 +1,6 @@
 function Navbar() {
   return (
-    <nav className="navbar">
+    <nav>
       <h1>Job Portal</h1>
     </nav>
   );
